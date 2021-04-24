@@ -1,0 +1,1253 @@
+/* calendar */
+
+blocks {
+    display: flex;
+}
+
+block1_c {
+    border: 1px solid black;
+    width: 19%;
+    height: 600px;
+}
+
+block2_c {
+    border: 1px solid purple;
+    width: 100%;
+    height: 600px;
+}
+
+
+body {
+    nmargin-top: auto;
+    margin-left: 0;
+    margin-right: 1%;
+    background-color: #dde4ed;
+}
+
+body a:focus {
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
+}
+
+.headers_container {
+    height: 6rem;
+    margin-bottom: 0;
+}
+
+.introdusse_block {
+    /* border: 2px solid pink; */
+    width: 100%;
+    height: 100%;
+    background: #dde4ed;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.m-link {
+    /*border: 2px solid blue; */
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.navigation_font_one {
+    font-family: 'Nunito';
+    color: black;   
+    margin-left: 33%;
+    font-size: 26px;
+    padding-top: 0%;
+    width: 66%;
+}
+
+.navigation_font_two {
+    font-family: 'Nunito';
+    color: black;
+    margin-bottom: 4rem;
+}
+
+.home_authentication_container {
+    margin: 0% 0% 20px 0%;
+    height: 5rem;
+    width: 100%;
+}
+
+.home_authentication_container p {
+    width: 15rem;
+    margin: 0.7rem, 0rem 0rem 1rem;
+}
+
+.home_authentication_block {
+    margin-top: 0%;
+    margin-right: 0%;
+    text-align: rigth;
+    font-size: 24px;   
+    padding-top: 0%;
+    margin-top: 0%;
+    padding-left: 25%;
+    height: 100%;
+}
+
+.home_authentication_block a {
+     color: lightgrey;
+     margin-bottom: 0.5rem;   
+}
+
+.home_authentication_block p {
+    font-family: 'Nunito';
+    margin-bottom: 0.5rem;
+}
+
+.home_authentication_block_non_register {
+    margin-top: 0%;
+    margin-right: 0%;
+    font-size: 24px;
+    overflow: hidden;
+    padding-top: 0rem;
+    height: 100%;
+}
+
+.hnonregp {
+    font-family: 'Nunito';
+    margin-bottom: 0.5rem;
+    padding-right: 5rem;
+    padding-top: 2rem;
+    width: 60%;
+    float: right;
+    text-align: right;
+}
+
+.home_authentication_block_non_register a {
+    color: lightgrey;
+}
+
+.home_authentication_block_non_register p {
+    font-family: 'Nunito';
+}
+
+.home_login_block_login_form {
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+    font-size: 32px;
+}
+
+.home_login_block_signup_form {
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+    font-size: 20px;
+}
+
+.home_center_que {
+    text-align: left;
+    font-size: 24px;
+}
+
+#container_homeview {
+    margin-top: 25px;
+}
+
+.logo-block {
+    margin: 0 0 0 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.logo-block h1 {
+    font-size: 2.1rem;
+    color: darkslategrey;
+    margin-bottom: 1.5rem;
+}
+
+.logo-block p {
+    margin-left: 12%;
+    margin-right: 12%;
+}
+
+.form-icon: {
+    width: 20px;
+    height: 20px;
+}
+
+.quas {
+    margin-left: 12%;
+    font-family: 'Nunito';
+    color: black;
+    font-size: 26px; 
+    margin-top: 0%;
+    margin-bottom: 5px;
+/*
+    margin-top: 2.7rem; */
+}
+
+@media all and (max-width: 1000px) {
+
+    /* Profile */
+
+    .nav_position a {
+        font-size: 42px;
+        text-align: left;
+        margin-right: 12rem;
+        padding-left: 1rem;
+        width: 20rem;       
+    }
+    
+    .nav_logo a {
+        margin: 1rem;
+        margin-right: 9rem;
+        font-size: 48px;
+    }
+
+    .nav_block {
+        width: 22rem;
+    }
+    
+    .profile_nav {
+        padding-left: 0rem;
+        /**/
+    }
+    .profile_nav:active {
+        text-decoration: none;
+    }
+
+    .profile_main h1 {
+        font-size: 45px;
+    }
+    
+    .profile_main h2 {
+        font-size: 39px;
+        font-family: 'EB Garamond';
+    }
+
+    .profile_main p {
+        font-size: 37px;
+    }
+    
+    .profile_main li {
+        font-size: 33px;
+    }
+
+    .acti_one p {
+        font-size: 37px;
+    }
+
+    .acti_two p {
+        font-size: 37px;
+    }
+
+    /* Manual */
+	
+
+    .header_class h3 {
+        font-size: 66px;
+        font-family: 'Nunito';
+        color: darkred;
+    }
+
+    .profile_demo a {
+        font-size: 42px;
+    }    
+
+    .exp_sc p {
+        font-size: 44px;
+    }
+
+    .mn_1 h3 {
+        font-size: 50px;
+        margin-bottom: 25px;
+        margin-left: 40px;
+    }
+
+    .mn_1 h4 {
+        font-size: 44px;
+        color: ;
+        margin-top: 20px;
+    }
+    .mn_1 p {
+        font-size: 44px;
+        margin-bottom: 61px;
+    }    
+
+    .mn_2 h3 {
+        font-size: 50px;
+        margin-bottom: 15px;
+        margin-left: 40px;
+    }
+
+    .mn_2 h4 {
+        font-size: 44px;
+        margin-top: 20px;
+    }
+    .mn_2 p {
+        font-size: 44px;
+        margin-bottom: 61px;
+    }    
+
+    .mn_viber h4 {
+        font-size: 44px;
+        margin-top: 1px;
+        margin-bottom: 20px;
+        color: purple;
+    }
+    .mn_viber p {
+        font-size: 44px;
+        margin: 0 0 20px 0;
+    }  
+
+    .mn_whatsapp h4 {
+        font-size: 44px;
+        margin-top: 60px;
+        color: green;
+    }
+    .mn_whatsapp p {
+        font-size: 44px;
+    }
+    
+    .mn_telegram h4 {
+        font-size: 44px;
+        margin-top: 60px;
+        color: blue;
+    }
+    .mn_telegram p {
+        font-size: 44px;
+    }
+    
+
+    /* Homepage */
+    #nologin_cl {
+        height: 100%;
+        padding-bottom: 0px; 
+    }
+        
+    .headers_container {
+        height: 10.1rem;
+    }
+
+    .navigation_font_one {
+        margin-right: 1rem;
+        margin-left: 1rem;
+        font-size: 42px;
+        margin-bottom: 1rem;
+        width: 100%;        
+        text-align: right;
+    }
+
+    .navigation_font_two {
+        font-size: 45px;
+    }
+
+    .hnonregp {
+        margin-top: 1.5rem;
+        text-align: right;
+        float: right;
+        font-size: 46px;
+    }
+
+    .quas {
+        font-size: 34px;        
+    }
+
+    .logo-block {
+        margin-top: 1rem;
+    }
+    
+    .logo-block p {
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .logo-block h1 {
+        font-size: 5.2rem;
+    }
+ 
+    .logopaper_login {
+        margin-top: 2rem;
+        padding-bottom: 1rem;
+        color: seagreen;
+        font-size: 4.6rem;        
+    }
+
+/*    .logopaaper_nologin {
+        margin-top: 5rem;
+        padding-bottom: 1rem;
+    }
+*/
+
+    .logopaper_nologin {
+        margin-top: 3rem;
+        padding-bottom: 1rem;
+        font-size: 40px;
+        color: seagreen;
+        font-size: 4rem;
+    }
+
+    #dpaper {
+        font-size: 30px;
+    }
+
+
+    .home_authentication_block {
+        padding-top: 0%;
+        /*margin-right: 1%;*/
+        padding-right: 10%;
+        text-align: right;
+        height: 10rem;
+        float: right;
+        width: 100%;
+    }
+
+    #auth {
+        height: 10rem;
+    }
+
+    .home_authentication_container {
+        height: 10rem;
+        width: 100%;
+    }
+
+    .home_authentication_block_non_register {
+        height: 10rem;
+    }
+
+    .pcl {
+        width: 100%;
+    }
+
+    .pcl p {
+        font-size: 46px; 
+    }
+
+    #signup-recom {
+        padding-top: 1.5rem;
+    }
+
+
+    .homepage_form {
+        text-align: center;
+        margin-top: 0rem;
+        margin-bottom: 0.2rem;
+        font-size: 26px;
+    }
+
+    #cont {
+        border: 1px solid green;
+    }
+    
+    #textofgroup {
+        heigth: 100%;
+        width: 100%;
+    }
+    
+    #id_text_of {
+        width: 40rem;
+        height: 8rem;
+        font-size: 30px;
+        border: 1px solid blue;
+        padding-top: 16px;
+    }
+
+    #dategroup {
+        height: 100%;
+        width: 100%;
+    }
+
+    #id_date {
+        height: 3rem;
+        width: 20rem;
+        padding-top: 16px;
+        font-size: 30px;
+	border: 1px solid blue;
+    }
+
+    /* block */
+    #tgroup {
+        height: 100%;
+        width: 100%;
+    }
+
+    /* input */
+    #id_time {
+        font-size: 30px;
+        padding-top: 16px;
+        height: 3rem;
+        width: 20rem;
+        border: 1px solid blue;
+    }
+
+    #widgetsize {
+        margin-top: 16px;
+        font-size: 40px;
+    }
+
+    .form-icon {
+        width: 400px;
+        heigth: 400px;
+    }
+    
+    #labelform {
+        margin-top: 10%;
+        font-size: 40px;
+    }
+ 
+    .homepage_btn {
+        display: flex;
+        justify-content: center;
+        height: 6rem;
+    }
+
+    #buttonsizeform {
+        margin-right: 100px;
+        height: 100%;
+        width: 100%;
+        font-size: 24px;
+    }
+
+    #feedbackfroup {
+        width: 100%;
+        height: 100%;
+    }
+
+    #id_name {
+        font-size: 30px;
+        height: 3rem;
+        width: 17rem;
+    }
+
+    #id_message {
+        font-size: 30px;
+        height: 3rem;
+        width: 17rem;
+    }
+
+    .help_point p {
+        font-size: 2rem;
+    }
+}
+
+
+
+#widgetgroup {
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+   
+.homepage_form {
+    width: 100%;
+    margin-bottom: 0.2rem;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+ /*   margin-top: 2rem; */
+    margin-top: 0%;
+}
+
+
+#auth {
+    height: 7rem;
+}
+
+#buttonsizeform {
+    width: 70%;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.errorlist {
+    font-size: 14px;
+}
+
+.intro_pr {
+    font-family: 'Nunito';
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: seagreen;
+}
+
+
+.instructions {
+    font-family: 'Nunito';
+    font-size: 32px;
+    margin-bottom: 0.4rem;
+    color: darkred;
+}
+
+.otstup {
+    margin-left: 15px;
+}
+
+.form-fieldset p {
+    padding-top: 5px;
+}
+
+#rg_button {
+    width: 16rem;
+    height: 4rem;
+    padding-top: 1.35rem;
+    font-size: 27px;    
+    font-style: italic;
+}
+
+
+.profile_demo {
+    margin-top: 0%;
+    margin-left: 2%;
+    margin-right: 0;
+    text-align: left;
+    font-size: 32px;
+}
+
+
+.profile_homepagelink {
+    font-family: 'Abril Fatface';
+    font-size: 40px;
+    color: black;
+    margin-left: 1rem;
+}
+
+.homepagelink_effect {
+    font-family: 'Alice';
+    font-size: 40px;
+    margin-left: 1rem;
+    color: black;
+}	
+
+
+.profile_extended {
+    width: 100%;
+    height: 100px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.profile_background {
+    width: 100%;
+    height: 100%;
+    background-color: #dde4ed;
+}
+
+.profile_frontground {
+    padding-top: 0%;
+}
+
+
+
+
+
+
+.reminder_buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1.5rem;
+    font-size: 18px;
+}
+
+.exp_brd {
+    width: 100%;
+    height: 10px;
+    border-top: 2px solid #f5f756;
+}
+
+.exp_block {
+    height: 2rem;
+    padding-left: 4%;
+    padding-right: 8%;
+    font-size: 32px;
+    width: 100%;
+}
+
+.exp_ft {
+    padding-top: 7px;
+    font-size: 24px;
+}
+
+.exp_sc {
+    padding-top: 7px;
+    font-size: 24px;
+    font-family: 'Trocchi';
+}
+
+.exp_sc p {
+    margin: 1rem 1rem 1rem 0rem;
+}
+
+.exp_paragr {
+    padding: 0rem 0rem 0rem 0rem;
+    margin-bottom: 0.4rem;
+    font-size: 24px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-family: 'Podkova';
+}
+
+.exp_rul {
+    margin-bottom: 3rem;
+}
+
+.exp_e {
+    padding: 0.5rem 0rem 0rem 0rem;
+}
+
+
+.textcheck {
+    color: blue;
+}
+
+/* Accordion */
+#accordionExample {
+    margin-left: 5%;
+    margin-right: 5%;
+    color: white;
+}
+
+.card {
+    padding-top: 20px;
+    background: lightseagreen;
+}
+
+#signup-recom {
+    width: 100%;
+    height: 12rem;
+    text-align: center;
+    padding-top: 1.5rem;
+}
+
+.signup_btn {
+    margin-top: 2%;
+    margin-left: 0.2rem;
+    padding-bottom: 0;
+}
+
+.homepage_btn {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.feedback_form {
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-bottom: 30px;
+}
+
+.nav_block {
+    height: 48rem;
+    width: 26rem;
+    position: absolute;
+    margin-top: 0;
+    margin-right: 0;
+}
+
+.nav_block a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.nav_block a:active {
+    text-decoration: none;
+}
+
+.profile_main {
+    margin: 0 auto;
+    padding-left: 4rem;
+    width: 100%;
+}
+
+.nav_group a {
+    width: 100%;
+    text-align: center
+    font-size: 16px;
+}
+
+.nav_position {
+    padding-bottom: 4rem;
+    width: 21rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.nav_position a {
+    display: block;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.profile_nav {
+    font-family: 'Vollkorn';
+    font-size: 20px;
+    color: black;
+    padding-left: 5rem;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.nav_logo {
+    height: 4rem;
+    margin-top: 3.5rem;
+    margin-bottom: 0rem;
+    margin-left: 3rem;
+    margin-right: 5rem;
+    text-align: center;
+}
+
+
+/* profile_activate_page.html */
+
+.profile_profile {
+    font-family: 'EB Garamond';
+    font-size: 24px;
+}
+
+.profile_profile_def {
+    font-size: 42px;
+    font-family: 'EB Garamond';
+}
+
+.activation {
+    font-family: 'EB Garamond';
+    font-size: 37px;
+}
+
+.activation_info { 
+/*
+    font-family: 'Nunito'; */
+    font-size: 22px;
+    text-align: justify;
+}
+
+.activate_v p {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+}
+
+.activate_v label {
+    font-size: 18px;
+}
+
+.activate_w p {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+}
+
+.activate_w label {
+    font-size: 18px;
+}
+
+.activate_t p {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+}
+
+activate_t label {
+    font-size: 18px;
+}
+
+
+/* Jrnl */
+.journal_title {
+    font-size: 37px;
+    font-family: 'EB Garamond';
+}
+
+.pagination a {
+    font-size: 22px;
+}
+
+/* Fonts */
+
+.ag {
+    font-size: 18px;
+}
+
+.agrg {
+    font-size: 32px;
+}
+
+.logopaper_login {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    color: seagreen;
+    font-size: 6rem;
+}
+
+.logopaper_nologin {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    color: seagreen;
+    font-size: 6rem;
+}
+
+.describepaper {
+    font-family: 'Nunito', sans-serif;
+    font-size: 33px;
+    text-align: center; 
+    color: darkslategrey;
+}
+
+.nnt24px {
+    font-family: 'Nunito';
+    font-size: 24px;
+}
+
+.nnt22px {
+    font-family: 'Nunito';
+    font-size: 24px;
+    text-align: justify;
+}
+
+.nnt15px {
+    font-family: 'Nunito';
+    font-size: 15px; 
+    page-break-after: always;
+}
+
+
+.eb24px {
+    font-family: 'EB Garamond';
+    font-size: 32px;
+    margin-bottom: 0.6rem;
+}
+
+.v18px {
+    font-family: Vollkorn;
+    font-size: 22px;
+}
+
+.statistic_h {
+    margin-left: 0;
+    margin-top: 1rem;
+    font-size: 37px;
+    font-family: 'Nunito';
+}
+
+.statistic_l {
+    margin-left: 0;
+    margin-top: 1rem;
+    font-size: 38px;
+    font-family: 'Nunito';
+    font-style: bold;
+}
+
+.pr_statistic_activate {
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+.profile_activate_form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.activate_v {
+    width: 12rem;
+    margin: 0rem 0rem 0.5rem 2rem;
+}
+
+.activate_w {
+    width: 12rem;
+    margin: 0rem 0rem 0.5rem 2rem;
+}
+
+.activate_t {
+    width: 12rem;
+    margin: 0rem 0rem 0.5rem 2rem;
+}
+
+.activate_btn {
+    margin: 0rem 0rem 0rem 2.1rem;
+}
+
+.activate_btn input {
+    width: 9rem;
+}
+
+/* css spectre */
+
+.form-label {
+    font-style: 'Nunito';
+    font-size: 20px;
+}
+
+.pagination {
+    margin-top: 3.2rem;
+}
+
+.btn {
+    width: 10rem;
+    height: 10rem;
+}
+
+/* profilereminderinviewhtml 
+   profilereminderdoneviewhtml */
+
+.journal_params {
+    font-family: 'Nunito';
+    font-size: 32px;
+    border-bottom: 2px solid #f5f756;
+    width: 24rem;
+}
+
+
+.form-icon i {
+    height: 20px;
+    width: 20px;
+}
+
+.another class {
+    height: 20px;
+    width: 20px;
+}
+
+.form-checkbox form-inline {
+    font-size: 20px;
+}
+
+
+
+/* ?????????????????? */
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+} 
+
+
+.basicfont {
+    font-size: 28px;
+    font-family: 'Nunito';
+    text-align: center;
+    padding-bottom: 1rem;
+    color: white;
+}
+
+
+.Bell25Red {
+    font-family: 'Bellum Text';
+    color: darkred;
+    font-size: 25px;
+    margin-bottom: 0.2rem;
+}
+
+.Bell20 {
+    font-family: 'Bellum Text';
+    font-size: 20px;
+    margin-bottom: 0.2rem;
+}
+
+.Bell18navy {
+    font-family: 'Bellum Text';
+    color: #fe9f35;
+    font-size: 25px;
+}
+
+.Bell18F {
+    font-family: 'Nanum Gothic';
+    color: green;
+    font-size: 16px;
+}
+
+.EBG28 {
+    font-family: 'EB Garabage';
+    font-size: 28px;
+    margin-bottom: 1rem;
+}
+
+
+.btn {
+    line-height: 0.2rem;
+}
+
+.card-header {
+    background-color: red;
+}
+
+
+.footer {
+    margin-top: 5rem;
+    margin-bottom: -20px;
+}
+
+.footer h4 {
+    margin-top: 3rem;
+    font-family: 'Bellum Text';
+    font-size: 32px;
+    text-align: center;
+    color: navy;
+}
+
+
+
+
+
+.manual_link {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Nunito';
+    color: black;
+    margin-top: 2rem;
+}
+
+
+
+.manual_p {
+    font-size: 37px;
+    padding-top: 1rem;
+    margin-bottom: 0;
+}
+
+.manual_link a {
+    font-size: 33px;
+}
+
+
+
+
+/* Manual */	
+
+.mn_1 {
+    margin-top: 50px;
+}
+.mn_1h4 {
+    font-size: 22px;
+    color: black;
+    margin-top: 12px;
+}
+.mn_1p {
+    font-size: 22px;
+}    
+
+.mn_viberh4 {
+    font-size: 32px;
+    margin-top: 50px;
+    color: purple;
+}
+.mn_viberp {
+    font-size: 22px;
+}
+  
+.mn_whatsapph4 {
+    font-size: 32px;
+    margin-top: 50px;
+    color: green;
+}
+.mn_whatsappp {
+    font-size: 22px;
+}
+    
+.mn_telegramh4 {
+    font-size: 32px;
+    margin-top: 50px;
+    color: blue;
+}
+.mn_telegramp {
+    font-size: 22px;
+}
+ 
+.mn_2 {
+    margin-top: 50px;
+}   
+
+.mn_2h4 {
+    font-size: 22px;
+    color: black;
+    margin-top: 12px;
+}
+.mn_2p {
+    font-size: 22px;
+}
+
+
+/* error handle blocks */
+.errorwrapper {
+    height: 20rem;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+}
+
+.container_1 {
+    width: 100%;
+    height: 60%;
+}
+
+.container_2 {
+    position: absolute;
+    margin-top: 15%;
+    font-size: 61px; 
+/*    font-family: 'Montserrat Subrayada', sans-serif; */
+    color: black;
+}
+
+.code_container {
+    width: 200px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 10%;
+    margin-left: 1rem;
+    float: left;
+    font-size: 27px;
+    text-align: center;
+    color: red;
+}
+
+.error_container {
+    height: 40%;
+    margin-top: 10%;
+    font-size: 22px;
+    margin-left: 50%;
+}
+
+
+.activate_view {
+    width: 98%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.activate_view_mode {
+    text-align: left;
+    margin-top: 1rem;
+    margin-left: 29%;
+    font-size: 22px;
+    width: 42%;
+}
+
+.activate_view_mode a {
+    color: red;
+}
+
+.activate_view_mode a:visited {
+    color: red;
+}
+
+
+.login_required_block {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10rem;
+    text-align: center;
+    font-size: 32px;
+}
+
+
+/* Adminpages */
+.apage_h {
+    font-size: 32px;
+    margin-top: 20px;
+}

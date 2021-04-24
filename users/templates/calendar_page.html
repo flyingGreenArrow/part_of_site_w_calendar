@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html> 
+<!-- COOL STUFF -->
+<!-- ------------->
+<!-- COMMERCIAL -->
+<!-- for calendar set up arrays: last days of last month, current days of month and next month days -->
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </script>
+    <style>
+        /* help icons */
+        .remd_text_of_ic {
+            margin-left: 260px;
+            margin-bottom: 90px;
+            margin-right: 4px;
+        }
+        
+        .remd_datetime {
+            display: flex;
+        }
+
+        .remd_datetime_ic {
+            margin-left: 260px;
+            margin-right: 4px;
+        }
+
+        .remd_messng_ic {
+            margin-left: 260px;
+            margin-right: 4px;
+        }
+
+        .reg_phone_ic {
+            margin-left: 260px;
+            margin-right: 4px;
+        }
+
+        .reg_password_ic {
+            margin-left: 260px;
+            margin-right: 4px;
+        }
+
+        .reg_confirm_password_ic {
+            margin-left: 260px;
+            margin-right: 4px;
+        }
+
+        .actv_viber_p {
+            margin-bottom: 0;
+            margin-top: 0;    
+        }
+
+        .actv_viber_ic {
+            padding-top: 8%;
+            padding-right: 1%;
+        }
+
+        .actv_whatsapp_ic {
+            padding-top: 19%;
+            padding-right: 1%;
+        }
+
+        .actv_whatsapp_p {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .actv_telegram_ic {
+            padding-top: 8%;
+            padding-right: 1%;
+        }
+
+        .actv_telegram_p {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .media_activation_1 {
+            display: flex;
+            margin-left: 5%;
+        }
+
+        .media_activation_2 {
+            display: flex;
+            margin-left: 60%;
+        }        
+
+        .desc {
+            color: black;
+            font-size: 22px;
+            line-height: 30px;
+            margin-left: 15px;
+            margin-top: 50px;
+        }
+
+        .desc_reg {
+            color: black;
+            font-size: 22px;
+            line-height: 30px;
+            margin-left: 15px;
+            margin-bottom: 40px;
+        }
+        
+        #reg_label_1 {
+            position: absolute;
+            margin-left: 15px;
+        }
+
+        #reg_label {
+            position: absolute;
+            margin-left: 15px;
+        }
+
+        #id_phone {
+            width: 400px;
+            height: 25px;
+        }
+
+        #id_password1 {
+            width: 400px;
+            height: 25px;
+        }
+
+        #id_password2 {
+            width: 400px;
+            height: 25px;
+        }
+
+        #labelform {
+            position: absolute;
+            top: 115px;
+            margin-left: 15px;
+        }
+
+        #datetime_labelform {
+            margin-left: 15px;
+            position: absolute;
+        }
+
+        #id_text_of {
+            width: 400px;
+            height: 125px;
+            margin-top: 15px;
+        }
+
+        #id_time {
+            
+        }
+
+        #tgroup {
+            margin-top: 15px;
+        }
+
+        #widgetfroup {
+            margin-top: 15px;
+        }
+
+        #widgetlabel {
+            position: absolute;
+            margin-left: 15px;
+            color: grey;
+            font-size: 22px;
+            line-height: 30px;
+        }
+
+        #widgetsize_1 {
+            color: grey;
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        #widgetsize {
+            color: grey;
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        #buttonsizeform {
+            float: right;
+            margin-right: 27px;
+            width: 138px;
+            height: 30px;
+            background-color: #FFCC00;
+            margin-top: 20px;
+        }
+
+        .imageeeeeee {
+            background-image: url(/static/filestorage/_ar_left.png);
+            background-color: green;
+            width: 550px;
+            height: 500px;
+        } 
+
+        .imageeeeeee:hover {
+            color: white;
+        }
+
+        .dpr {
+            margin-bottom: 4px;
+        }
+
+        .cld {
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            width: 209px;
+            height: 226px;
+            background-color: white;
+            margin-left: 1.6rem;
+            margin-right: 1.5rem;
+        }
+
+        .green {
+            color: green;
+        }
+        .red {
+            color: red;
+        }
+
+        .calendar_date {
+            font-family: 'Open Sans';
+            font-size: 11px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .date-item {
+            width: 22px; 
+            height: 22px; 
+            margin: 5px 0px 9px 7px; 
+        }
+
+        #daypoint_2 {
+            margin-left: 7px;
+            font-family: 'Roboto';
+            font-size: 11px; 
+            text-decoration: none;
+            color: black;
+        }
+
+        #daypoint_2:hover {
+            color: #FFCC00;
+        }
+ 
+        .sel_1 {
+            margin-top: 5.5%;   
+        }
+
+        .sel_1 select{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: white;
+            background-repeat: no-repeat;
+            border: none; 
+            position: relative;
+            background: #FFCC00; 
+            top: 10px;
+            border: 0;
+            outline: 0;
+        }
+
+        .sel_1 select:hover {
+            color: white;
+        }
+
+        .sel_2 {
+            margin-top: 5.5%; 
+        }
+
+        .sel_2 select{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: white;
+            background-repeat: no-repeat;
+            border: none;
+            position: relative; 
+            font-size: 13px;
+            background: #FFCC00; 
+            top: 10px;
+            border: 0;
+            outline: 0;
+        }
+
+        .sel_2 select:hover{
+            color: white;
+        }
+
+        .sel_2 select:focus{
+            outline: none;
+        }
+
+        .block1_c_month {
+            /*border: 1px solid black; */
+            height: 1010px;
+            width: 25%;
+            background-color: #FFCC00;
+        }
+
+        .block1_c_day {
+            /*border: 1px solid black;*/ 
+            /*height: 1217px;*/
+            width: 100%;
+            background-color: #FFCC00;
+        }
+
+        .block2_c_month {
+            /*border: 1px solid red;*/
+            /* height: 1010px;*/
+            height: 100%;
+        }
+
+        .block2_c_day {
+            border: 1px solid red;
+            height: 100%;
+            width: 100%;
+        }
+
+        .day_struct {
+            width: 100%;
+           /* height: 45px; */
+            border: 1px solid lightgrey;
+        }
+
+        #month_back_switch {
+            
+        }
+
+        #month_forward_switch {
+            
+        }
+
+        .select_op {
+            color: black;
+        }
+ 
+        .select_op:hover {
+            background-color: #FFCC00;
+        }
+
+        .small_left_arrow {
+            background: url('/media/small_left_arrow.svg');
+            background-size: contain;
+            height: 13px;
+            width: 10px;
+            position: relative;
+            margin: 10.5% 8% 0 0;
+        }
+
+        .small_left_arrow:hover {
+            background: url('/media/small_left_arrow_active.svg');
+            background-size: contain;
+        }
+        
+        .small_right_arrow {
+            background: url(/media/small_right_arrow.svg);
+            background-size: contain;
+            height: 13px;
+            width: 10px;
+            position: relative;
+            margin: 10.5% 0 0 8%;  
+        }
+
+        .small_right_arrow:hover {
+            background: url(/media/small_right_arrow_active.svg);
+            background-size: contain;
+        }
+
+        .blocks {
+            display: grid;
+            background-color: white;
+            grid-template-areas: 'lilcal bigcal';
+            grid-template-rows: 1fr;
+            grid-template-columns: 267px 1066px;
+        }
+        /* MODAL REMINDER FORM */
+        .modalwindow {
+            position: fixed;
+            display: none;
+            z-index: 99999;
+            width: 840px;
+            height: 356px;
+            background: white;
+            -webkit-box-shadow: 0 8px 6px -6px black;
+            -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+            -webkit-box-shadow: 0 8px 6px -6px black;
+            -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+        }
+
+        #modal_h2 {
+            background-color: #E64A19;
+            padding: 15px;
+            font-size: 25px;
+            color: black;
+            margin: 0;
+            font-family: arial;
+            text-align: center;
+        }
+
+        .content {
+            /* padding: 20px; */
+            color: grey;
+            font-size: 22px;
+            line-height: 30px;
+        }
+
+        .close {
+            background: url(/media/close_button.svg);
+            background-size: contain;
+            float: right;
+            margin-right: 24px;
+            margin-top: 26px;
+            width: 10px;
+            height: 10px;
+            display: block;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: arial;
+        }
+
+
+        #modal_reminder_form {
+            display: none;
+            animation-duration: 1.5s;
+            animation-fill-mode: both;
+            animation-name: fadeIn;
+        }
+
+        #modal_reminder_form.open {
+            display: block;
+            position: relative;
+            border: 1px solid lightgrey;
+            width: 840px;
+            height: 405px;
+        }
+
+
+        #modal_activation_form {
+            display: none;
+            animation-duration: 1.5s;
+            animation-fill-mode: both;
+            animation-name: fadeIn;
+        }
+
+        #modal_activation_form.open {
+            display: block;
+            position: relative;
+            border: 1px solid lightgrey;
+            width: 840px;
+            height: 439px;
+        }
+
+        #modal_registration_form {
+            display: none;
+            animation-duration: 1.5s;
+            animation-fill-mode: both;
+            animation-name: fadeIn;
+        }
+
+        #modal_registration_form.open {
+            display: block;
+            position: relative;
+            border: 1px solid lightgrey;
+            width: 840px;
+            height: 356px;
+        }
+
+
+        /* my phone reslution (/ 5.5) */
+        @media all and (max-width: 980px) {
+            #block4_c {
+                display: block;
+            }
+            .nav-nav {
+                display: none;
+            }
+            .contr {
+                display: none;
+            }
+            .cld {
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                width: 209px;
+                height: 204px;
+                background-color: white;
+                margin-left: 11%;
+                margin-right: 1.5rem;
+            }
+        }
+
+        @media all and (max-width: 980px) {
+            .cld {
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                width: 209px;
+                height: 204px;
+                background-color: white;
+                margin-left: 3.5rem;
+                margin-right: 1.5rem;
+            }
+        }
+
+        @media all and (max-width: 1200px) and (min-width: 1000px) {
+            .cld {
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                width: 209px;
+                height: 204px;
+                background-color: white;
+                margin-left: 10%;
+                margin-right: 1.5rem;
+            }
+        }
+
+
+        @media all and (min-width: 1390px) and (max-width: 1600px) {
+            /* ____________________________little calendar */
+            .cld {
+                width: 247px;
+                height: 280px;
+                margin-top: 12px;
+            }
+        }        
+
+
+        @media all and (min-width: 1920px) {
+            .cld {
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                width: 368px;
+                height: 373px;
+                background-color: white;
+            }
+        }
+
+
+    </style>
+</head>
+<body style='background-color: white;'>
+<div class='nav-nav'>
+    <div class="menu_set">
+        <button id="registration" href="#modal_registration_form" name="modal_registration_form" class="menu_el1">
+            регистрация
+        </button>        
+        <button id="activation" href="#modal_activation_form" name="modal_activation_form" class="menu_el">
+            активация ботов
+        </button>        
+        <button id="add_reminder" href="#modal_reminder_form" name="modal_reminder_form" class="menu_el">
+            добавить напоминание
+        </button>
+    </div>
+</div>
+
+<div id="modal_reminder_form" class="modalwindow">
+    <a href="#" class="close"></a>
+    <p class="desc">Новое напоминание</p>
+    <div class="content">
+        <form method="post" id='remi_form'>
+            {% csrf_token %}
+            <input id='id_username' type='hidden' name='username' value='{{ user.phone }}'>
+            {{ reminder_form.username.errors }}
+
+            <div>
+                <label for='{{ reminder_form.text_of.id_for_label }}' id='labelform'>Текст напоминания</label>
+                <div style="display: flex;">
+                    <img title='Введите ваш номер телефона' class='remd_text_of_ic' src="/media/yellow_!.svg"/>
+                    <textarea id='id_text_of' type='text' name='text_of' rows='3'> </textarea>
+                </div>
+                {{ reminder_form.text_of.errors }}
+            </div>
+
+            <div>
+                <div id='tgroup'>
+                    <label for='{{ reminder_form.time.id_for_label }}' id='datetime_labelform'> Время и дата: </label>
+                    <div class='remd_datetime'>
+                        <img title='Установите время и дату для напоминания' class='remd_datetime_ic' src="/media/yellow_!.svg"/>
+                        <input id='id_time' type='time' name='time'>
+                        {{ reminder_form.time.errors }}
+                        <input id='id_date' type='date' name='date'>
+                        {{ reminder_form.date.errors }}
+                    </div>
+                </div>
+            </div>
+            
+            <div id='widgetfroup'>
+                <label id='widgetlabel'>Мессенджеры</label>
+                <div style="display: flex;">
+                <img title='Установите галочку на мессенджере, который будет участвовать в отправке' class='remd_messng_ic' src="/media/yellow_!.svg"/>
+                <label id='widgetsize_1' class='form-checkbox form-inline' for='{{ reminder_form.widgetV.id_for_label }}'>
+                    <input id='id_widgetV' type='checkbox' name='widgetV'><i class='form-icon'></i>Viber
+                </label>
+                {{ reminder_form.widgetV.errors }}
+
+                <label id='widgetsize' class='form-checkbox form-inline' for='{{ reminder_form.widgetW.id_for_label }}'>
+                    <input id='id_widgetW' type='checkbox' name='widgetW'><i class='form-icon'></i>Whatsapp
+                </label>
+                {{ reminder_form.widgetW.errors }}
+
+                <label id='widgetsize' class='form-checkbox form-inline' for='{{ reminder_form.widgetT.id_for_label }}'>
+                    <input id='id_widgetT' type='checkbox' name='widgetT'><i class='form-icon'></i>Telegram
+                </label>
+                {{ reminder_form.widgetT.errors }}
+                </div>
+            </div>
+            
+            <div class='homepage_btn'>
+                <button name='{{ reminder_form.prefix }}' id='buttonsizeform' class='btn btn-primary' value='Submit'>Создать</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div id="modal_registration_form" class="modalwindow">
+    <a href="#" class="close"></a>
+    <p class="desc_reg">Регистрация</p>
+    <div class="content">
+        <form method="post">
+            {% csrf_token %}
+            <div class="reg_form_block">
+                <label for='{{ registration_form.phone.id_for_label }}' id='reg_label_1'>Телефон</label>
+                <div style="display: flex;">
+                    <img title='Введите ваш номер телефона' class='reg_phone_ic' src="/media/yellow_!.svg"/>
+                    <input id='id_phone' type='text' name='phone' max_length="12" autofocus="" required=""> </input>
+                    {{ registration_form.phone.text_of.errors }}
+                </div>
+            </div>
+            <div class="reg_form_block">
+                <label for='{{ registration_form.password1.id_for_label }}' id='reg_label'>Пароль</label>
+                <div style="display: flex;">
+                    <img title='Введите пароль' class='reg_password_ic' src="/media/yellow_!.svg"/>
+                    <input id='id_password1' type='password' name='password1' max_length="12" autofocus="" required=""> </input>
+                    {{ registration_form.password1.text_of.errors }}
+                </div>
+            </div>
+            <div class="reg_form_block">
+                <label for='{{ registration_form.password2.id_for_label }}' id='reg_label'>Подтверждение пароля</label>
+                <div style="display: flex;">
+                    <img title='Повторите ввод пароля' class='reg_confirm_password_ic' src="/media/yellow_!.svg"/>
+                    <input id='id_password2' type='password' name='password2' max_length="12" autofocus="registration-" required=""> </input>
+                    {{ registration_form.password2.text_of.errors }}
+                </div>
+            </div>
+            <div class='homepage_btn'>
+                <button name='{{ register_form.prefix }}' id='buttonsizeform' class='btn btn-primary' value='Submit'>Зарегестрироваться</button>
+            </div>
+        </form>
+        </div>
+</div>
+
+
+<div id="modal_activation_form" class="modalwindow">
+    <a href="#" class="close"></a>
+    <h2 style='margin-left: 7px;'>*Инструкция*</h2>
+    <div class="content">
+        <div class='media_activation_1'>
+            <img title='Отсканируйте qr-код бота Viber, начните диалог и вставьте код для активации мессенджера' class='actv_viber_ic' src="/media/yellow_!.svg"/>
+            <p class='actv_viber_p'><img src="/static/filestorage/vibercutqr.png"/ style='width:100px;height:100px;'> Viber: {{ vibercode }}</p>
+        </div>
+        <div class='media_activation_2'>
+            <img title='Отсканируйте qr-код бота Whatsapp, начните диалог и вставьте код для активации мессенджера' class='actv_whatsapp_ic' src="/media/yellow_!.svg"/>
+            <p class='actv_whatsapp_p'><img src="/static/filestorage/wacutqr.png"/ style='width:100px;height:100px;'> Whatsapp: {{ wscode }}</p>
+        </div>
+        <div class='media_activation_1'>
+            <img title='Отсканируйте qr-код бота Telegram, начните диалог и вставьте код для активации мессенджера' class='actv_telegram_ic' src="/media/yellow_!.svg"/>
+            <p class='actv_telegram_p'><img src="/static/filestorage/tg_new_qr.png"/ style='width:100px;height:100px;'> Telegram: {{ tgcode }}</p>
+        </div>
+    </div>
+</div>
+
+<div class='contr'>
+    <div class='blocks'>
+        <div id='block1_c'>
+            <div class='month_row' style='height: 80px; text-align: center;'>
+                <div style='display: flex; width: 100%; justify-content: center;'>
+<!-- 
+                    <a href='#' name='{{ today }}' id='likebutton1' class='small_left_arrow'><img src='/media/small_right_arrow'></img></a>
+
+-->
+                    <a href='#' name='{{ today }}' id='likebutton1' class='small_left_arrow'></a>
+                    <div class='sel_1' id='select1'>
+                        <select name='{{ cmonth }}' id='likebutton2' size='1'>
+                            {% for m in month_list %}
+                                {% if cmonth == m %}
+                                    <option id='likebutton5' class='select_op' selected>{{ m }}</option>
+                                {% else %}
+                                    <option id='likebutton5' class='select_op'>{{ m }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class='sel_2' id='select2'>
+                        <select name='{{ cyear }}' id='likebutton3' size='1'>
+                            {% for y in year_list %}
+                                {% if cyear == y %}
+                                    <option id='likebutton6' class='select_op' selected>{{ y }}</option>
+                                {% else %}
+                                    <option id='likebutton6' class='select_op'>{{ y }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <a href='#' name='{{ today }}' id='likebutton4' class='small_right_arrow'></a>
+                </div>
+            </div>
+            <div class='little_calendar'>
+                <div class='cld'>
+                    <div class='calendar_header' style='display: flex; justify-content: space-evenly;'>
+                        <div class='calendar_date'> ПН </div>
+                        <div class='calendar_date'> ВТ </div>
+                        <div class='calendar_date'> СР </div>
+                        <div class='calendar_date'> ЧТ </div>
+                        <div class='calendar_date'> ПТ </div>
+                        <div class='calendar_date'> СБ </div>
+                        <div class='calendar_date'> ВС </div>
+                    </div>
+                    <div class='calendar_body' id='hash1' style='display: flex; flex-wrap: wrap;'>
+                        {% for item in full_month_dates %}                     
+                            <p class='date-item'><a href='#' id='daypoint_2' name='{{ item.1 }}'> {{ item.0 }} </a></p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<script type='text/javascript'>
+
+
+$(document).on("click", "#registration", function() {
+const form = document.querySelector('#modal_registration_form');
+var doc = document.getElementById('modal_registration_form');
+form.classList.add('open');
+});
+
+
+$(document).on("click", "button[name=modal_registration_form]", function() {
+    var eid = $(this).attr('href');
+    var elt_ar = document.getElementById('registration');
+    var bound = elt_ar.getBoundingClientRect();
+    $('#modal_registration_form').fadeIn(500);
+    var winW = $(window).width();
+    var winH = $(window).height();
+    $(eid).css('left', bound.left-9);
+    $(eid).css('margin-top', '-30px');
+    $(eid).css('margin-bottom', '30px');
+});
+
+
+$(document).on("click", "#add_reminder", function() {
+const form = document.querySelector('#modal_reminder_form');
+var doc = document.getElementById('modal_reminder_form');
+form.classList.add('open');
+});
+
+$(document).on("click", "button[name=modal_reminder_form]", function() {
+    var eid = $(this).attr('href');
+    var elt_ar = document.getElementById('registration');
+    var bound = elt_ar.getBoundingClientRect();
+    $('#modal_reminder_form').fadeIn(500);
+    var winW = $(window).width();
+    var winH = $(window).height();
+    $(eid).css('left', bound.left-9);
+    $(eid).css('margin-top', '-30px');
+    $(eid).css('margin-bottom', '30px');
+});
+
+
+$(document).on("click", "#activation", function() {
+const form = document.querySelector('#modal_activation_form');
+var doc = document.getElementById('modal_activation_form');
+form.classList.add('open');
+});
+
+
+$(document).on("click", "button[name=modal_activation_form]", function() {
+    var eid = $(this).attr('href');
+    var elt_ar = document.getElementById('registration');
+    var bound = elt_ar.getBoundingClientRect();
+    $('#modal_activation_form').fadeIn(500);
+    var winW = $(window).width();
+    var winH = $(window).height();
+    $(eid).css('left', bound.left-9);
+    $(eid).css('margin-top', '-30px');
+    $(eid).css('margin-bottom', '30px');
+});
+
+
+$(document).on("click", ".modalwindow .close", function() {
+    $('.modalwindow').fadeOut(500);
+});
+
+
+$(document).on("submit", "#remi_form", function() {
+var param = $('#remi_form').serialize();
+create_post(param);
+});
+
+
+function create_post(param) {
+    console.log('create post is working')
+    $.ajax({
+        url: 'rform',
+        type: 'POST',
+        data: {dataArray: param},
+        success: function(response) {
+            console.log('success');
+        },
+        error: function(response) {
+            console.log('error');
+        }
+    });
+};
+
+
+<!-- When date is choose -->
+$(document).on("click", "#daypoint_2", function() {
+var datster = $(this).attr('name');
+$.ajax({
+    type:"GET",
+    url:"{% url 'dc' %}",
+    data:{dat:datster},
+    success: function(response)
+    {
+        var reminders=response["reminders"];
+        var today=response["today"];
+        var tval = response["tval"];
+        var tmonth = response["tmonth"];
+        var tyear = response["tyear"];
+        var tday = response["tday"];
+        $( '#days' ).empty();
+        $( '#second_row' ).empty();
+        $( '#navigation' ).empty();
+        var nav = document.getElementById('navigation');
+        var a1 = document.createElement('a');
+        a1.setAttribute('id', 'day_back_switch');
+        a1.setAttribute('href', '#');
+        a1.setAttribute('name', today);
+        a1.setAttribute('class', 'day_left_switch');
+        var a2 = document.createElement('a');
+        a2.setAttribute('id', 'day_forward_switch');
+        a2.setAttribute('href', '#');
+        a2.setAttribute('name', today);
+        a2.setAttribute('class', 'day_right_switch');
+        var tablo = document.createElement('P');
+        tablo.innerHTML = tval + ', ' + tday + ' ' + tmonth + ' ' + tyear;
+        tablo.setAttribute('id', 'top_date_ident_month');
+        nav.append(a1);
+        nav.append(tablo);
+        nav.append(a2);
+        var firstblock = document.getElementById('first_row');
+        var viewModelBlock = document.createElement('a');
+        var viewModelList = document.createElement('a');
+        viewModelBlock.setAttribute('id', 'view_model_block_no_active');
+        viewModelBlock.setAttribute('href', '#');
+        viewModelBlock.setAttribute('name', today);
+        viewModelList.setAttribute('id', 'view_model_list');
+        viewModelList.setAttribute('href', '#');
+        viewModelList.setAttribute('name', today);
+        if (document.getElementById('model_div')) {
+            $( '#model_div' ).empty();
+            modelDiv = document.getElementById('model_div');
+            modelDiv.append(viewModelBlock);
+            modelDiv.append(viewModelList);
+        } else {            
+            modelDiv = document.createElement('div');
+            modelDiv.setAttribute('id', 'model_div');
+            modelDiv.append(viewModelBlock);
+            modelDiv.append(viewModelList);
+            firstblock.append(modelDiv);
+        }
+        var block1 = document.getElementById('days');
+        $( '#block1_c' ).removeClass('block1_c_month');
+        $( '#block1_c' ).addClass('block1_c_day');
+        var counter = 0;
+        for (i=0; i<24; i++) {
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'day_timezone');
+            div_block.setAttribute('class', 'day_struct');
+            counter = new String(i);
+            if (counter.length == 1) {
+                prg.innerHTML = '0'+i+':00';
+            } else {
+                prg.innerHTML = i + ':00';
+            }
+            div_block.append(prg);
+            for (r=0; r<reminders.length; r++) {
+                val1=reminders[r][2][0];
+                val2=reminders[r][2][1];
+                hour=val1+val2;
+                if (hour == i) {
+                    var reminder = document.createElement('P');
+                    reminder.innerHTML = reminders[r];
+                    div_block.append(reminder);
+                }
+            }
+            block1.append(div_block);
+                }
+        var sec_row = document.getElementById('second_row');
+        var srprg = document.createElement('P');
+        srprg.innerHTML = today;
+        sec_row.append(srprg);
+        }
+    })
+});
+
+
+
+$(document).on("click", "#month_back_switch", function() {
+var id = 1;
+var datster = $(this).attr('name');
+$.ajax({
+    type: "GET",
+    url: "{% url 'mvback' %}",
+    data:{post_id: id, dat: datster},
+    success: function(response)
+    {
+        var instance_past = response["past_month_dates"];
+        var instance_current = response["current_month_dates"];
+        var next_month_dates = response["next_month_dates"];
+        var full_month_dates = response["full_month_dates"];
+        var today = response["today"];
+        var cmonth = response["cmonth"];
+        var cyear = response["cyear"];
+        var month_list = response["month_list"];
+        var year_list = response["year_list"];
+        $( '#id_id' ).empty();
+        $( '#days' ).empty();
+        $( '#hash1' ).empty();
+        for (j=0; j < instance_past.length; j++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');    
+            var val = document.createElement('a');
+            div_block.setAttribute('class', 'day_past');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint');
+            val.setAttribute('name', instance_past[j][2]);
+            val.innerHTML = instance_past[j][0];
+            prg.append(val);
+            div_block.append(prg);
+            var rlist = instance_past[j][1];
+            counter = 0;
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {
+                        var rprg = document.createElement('P');
+                        var aprg = document.createElement('a');
+                        rprg.setAttribute('class', 'rparagraph');
+                        aprg.setAttribute('class', 'relink');
+                        aprg.setAttribute('href', '#');
+                        aprg.setAttribute('name', 'reminder_information');
+                        aprg.innerHTML = rlist[r][5];
+                        rprg.append(aprg);
+                        div_block.append(rprg)
+                    }
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(instance_past[j][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+        for (i=0; i < instance_current.length; i++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            div_block.setAttribute('class', 'day');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');
+            var val = document.createElement('a');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint');
+            val.setAttribute('name', instance_current[i][2]);
+            val.innerHTML = instance_current[i][0];
+            prg.append(val);
+            div_block.append(prg);
+            var rlist = instance_current[i][1];
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {
+                        var rprg = document.createElement('P');
+                        var aprg = document.createElement('a');
+                        rprg.setAttribute('class', 'rparagraph');
+                        aprg.setAttribute('class', 'relink');
+                        aprg.setAttribute('href', '#');
+                        aprg.setAttribute('name', 'reminder_information');
+                        aprg.innerHTML = rlist[r][5];
+                        rprg.append(aprg);
+                        div_block.append(rprg);
+                    }
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(instance_current[i][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+        for (z=0; z < next_month_dates.length; z++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');
+            var val = document.createElement('a');
+            val.setAttribute('id', 'daypoint');
+            div_block.setAttribute('class', 'day_past');
+            val.setAttribute('href', '#');
+            val.setAttribute('name', next_month_dates[z][2]);
+            val.innerHTML = next_month_dates[z][0];
+            prg.append(val)
+            div_block.append(prg);
+            var rlist = next_month_dates[z][1];
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {                       
+                        var rprg = document.createElement('P');
+                        var aprg = document.createElement('a');
+                        rprg.setAttribute('class', 'rparagraph');
+                        aprg.setAttribute('class', 'relink');
+                        aprg.setAttribute('href', '#');
+                        aprg.setAttribute('name', 'reminder_information');
+                        rprg.innerHTML = rlist[r][5];
+                        rprg.append(aprg);
+                        div_block.append(rprg);
+                    }
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(next_month_dates[z][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+        for (x=0; x < full_month_dates.length; x++) {
+            var block1 = document.querySelector('.calendar_body');
+            var prg = document.createElement('P');
+            var val = document.createElement('a');
+            prg.setAttribute('class', 'date-item');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint_2');
+            val.setAttribute('name', full_month_dates[x][1]);
+            val1 = document.createTextNode(full_month_dates[x][0]);
+            val.appendChild(val1);
+            prg.append(val);
+            block1.appendChild(prg);
+        }
+        $( '#iter' ).removeClass('green');
+        $( '#iter' ).addClass('red'); 
+        var param1 = document.getElementById('likebutton1');
+        var param3 = document.getElementById('likebutton3');
+        var param2 = document.getElementById('likebutton2');
+        var param4 = document.getElementById('likebutton4');
+        var monthStepBack = document.getElementById('month_back_switch');
+        var monthStepForward = document.getElementById('month_forward_switch');
+        monthStepForward.removeAttribute('name');
+        monthStepForward.setAttribute('name', today);
+        monthStepForward.setAttribute('class', 'big_right_arrow');
+        monthStepBack.removeAttribute('name');
+        monthStepBack.setAttribute('name', today);
+        monthStepBack.setAttribute('class', 'big_left_arrow');
+        param1.removeAttribute('name');
+        param1.setAttribute('name', today);
+        param2.innerHTML = cmonth;
+        param3.innerHTML = cyear;
+        param4.removeAttribute('name');
+        param4.setAttribute('name', today);
+        var topdateYear = document.getElementById('top_date_ident_year');
+        var topdateMonth = document.getElementById('top_date_ident_month');
+        topdateYear.innerHTML = cyear;
+        topdateMonth.innerHTML = cmonth;
+        $( '#select1' ).empty();
+        $( '#select2' ).empty(); 
+        var sl1 = document.getElementById('select1');
+        var sl1_sl = document.createElement('select');
+        var sl2 = document.getElementById('select2');
+        var sl2_sl = document.createElement('select');
+        sl1_sl.setAttribute('id', 'likebutton2');
+        sl1_sl.setAttribute('name', cmonth);
+        sl1.setAttribute('class', 'sel_1');
+        sl2_sl.setAttribute('id', 'likebutton3');
+        sl2_sl.setAttribute('name', cyear);
+        sl2.setAttribute('class', 'sel_2');
+        for (i=0; i<month_list.length; i++) {
+            var op = document.createElement('option');
+            if (month_list[i] == cmonth) {
+                op.innerHTML = month_list[i];
+                op.setAttribute("selected", "selected");
+            } else {
+                op.innerHTML = month_list[i];
+            }
+            op.setAttribute('class', 'select_op');
+            op.setAttribute('id', 'likebutton5');
+            sl1_sl.append(op);
+        }
+        sl1.append(sl1_sl);
+        for (i=0; i<year_list.length; i++) {
+            var op = document.createElement('option');
+            if (year_list[i] == cyear) {
+                op.innerHTML = year_list[i];
+                op.setAttribute("selected", "selected");
+            } else {
+                op.innerHTML = year_list[i];
+            }
+            op.setAttribute('class', 'select_op');
+            op.setAttribute('id', 'likebutton6');
+            sl2_sl.append(op);
+        }
+        sl2.append(sl2_sl);
+        var rinfo = document.createElement('div');
+        rinfo.setAttribute('class', 'modalwindow');
+        var closebutton = document.createElement('a');
+        closebutton.setAttribute('href', '#');
+        closebutton.setAttribute('class', 'close');
+        rinfo.append(closebutton);
+        var h2 = document.createElement('h2');
+        var txt = document.createTextNode('Редактирование напоминания');
+        h2.append(txt);
+        rinfo.append(h2);
+        var rcontent = document.createElement('div');
+        rcontent.setAttribute('id', 'reminder_content');
+        rinfo.append(rcontent);
+        }
+    })
+});
+
+
+$(document).on("click", "#month_forward_switch", function() {
+var id = 1;
+var datster = $(this).attr('name');
+$.ajax({
+    type: "GET",
+    url: "{% url 'mv' %}",
+    data:{post_id: id, dat: datster},
+    success: function(response)
+    {
+        var instance_past = response["past_month_dates"];
+        var instance_current = response["current_month_dates"];
+        var next_month_dates = response["next_month_dates"];
+        var full_month_dates = response["full_month_dates"];
+        var today = response["today"];
+        var cmonth = response["cmonth"];
+        var cyear = response["cyear"];
+        var month_list = response["month_list"];
+        var year_list = response["year_list"];
+        $( '#id_id' ).empty();
+        $( '#days' ).empty();
+        $( '#hash1' ).empty();
+        for (j=0; j < instance_past.length; j++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');    
+            var val = document.createElement('a');
+            div_block.setAttribute('class', 'day_past');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint');
+            val.setAttribute('name', instance_past[j][2]);
+            val.innerHTML = instance_past[j][0];
+            prg.append(val);
+            div_block.append(prg);
+            var rlist = instance_past[j][1];
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {
+                        var rprg = document.createElement('P');
+                        var aprg = document.createElement('a');
+                        rprg.setAttribute('class', 'rparagraph');
+                        aprg.setAttribute('class', 'relink');
+                        aprg.setAttribute('href', '#');
+                        aprg.setAttribute('name', 'reminder_information');
+                        aprg.innerHTML = rlist[r][5];
+                        rprg.append(aprg);
+                        div_block.append(rprg);
+                    }
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(instance_past[j][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+        for (i=0; i < instance_current.length; i++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');
+            var val = document.createElement('a');
+            div_block.setAttribute('class', 'day');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint');
+            val.setAttribute('name', instance_current[i][2]);
+            val.innerHTML = instance_current[i][0];
+            prg.append(val);
+            div_block.append(prg);
+            var rlist = instance_current[i][1];
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {
+                    var rprg = document.createElement('P');
+                    var aprg = document.createElement('a');
+                    rprg.setAttribute('class', 'rparagraph');
+                    aprg.setAttribute('class', 'relink');
+                    aprg.setAttribute('href', '#');
+                    aprg.setAttribute('name', 'reminder_information');
+                    aprg.innerHTML = rlist[r][5];
+                    rprg.append(aprg);
+                    div_block.append(rprg);
+                    }
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(instance_current[i][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+        for (z=0; z < next_month_dates.length; z++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');
+            var val = document.createElement('a');
+            div_block.setAttribute('class', 'day_past');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint');
+            val.setAttribute('name', next_month_dates[z][2]);
+            val.innerHTML = next_month_dates[z][0];
+            prg.append(val);
+            div_block.append(prg);
+            var rlist = next_month_dates[z][1];
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {
+                        var rprg = document.createElement('P');
+                        var aprg = document.createElement('a');
+                        rprg.setAttribute('class', 'rparagraph');
+                        aprg.setAttribute('class', 'relink');
+                        aprg.setAttribute('href', '#');
+                        aprg.setAttribute('name', 'reminder_information');
+                        aprg.innerHTML = rlist[r][5];
+                        rprg.append(aprg);
+                        div_block.append(rprg);
+                    }    
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(next_month_dates[z][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+        for (x=0; x < full_month_dates.length; x++) {
+            var block1 = document.querySelector('.calendar_body');
+            var prg = document.createElement('P');
+            var val = document.createElement('a');
+            prg.setAttribute('class', 'date-item');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint_2');
+            val.setAttribute('name', full_month_dates[x][1]);
+            val1 = document.createTextNode(full_month_dates[x][0]);
+            val.appendChild(val1);
+            prg.append(val);
+            block1.appendChild(prg);
+        }
+        $( '#iter' ).removeClass('green');
+        $( '#iter' ).addClass('red'); 
+        var param1 = document.getElementById('likebutton1');
+        var param3 = document.getElementById('likebutton3');
+        var param2 = document.getElementById('likebutton2');
+        var param4 = document.getElementById('likebutton4');
+        var monthStepBack = document.getElementById('month_back_switch');
+        var monthStepForward = document.getElementById('month_forward_switch');
+        monthStepForward.removeAttribute('name');
+        monthStepForward.setAttribute('name', today);
+        monthStepForward.setAttribute('class', 'big_right_arrow');
+        monthStepBack.removeAttribute('name');
+        monthStepBack.setAttribute('name', today);
+        monthStepBack.setAttribute('class', 'big_left_arrow');
+        param1.removeAttribute('name');
+        param1.setAttribute('name', today);
+        param2.innerHTML = cmonth;
+        param3.innerHTML = cyear;
+        param4.removeAttribute('name');
+        param4.setAttribute('name', today);
+        var topdateYear = document.getElementById('top_date_ident_year');
+        var topdateMonth = document.getElementById('top_date_ident_month');
+        topdateYear.innerHTML = cyear;
+        topdateMonth.innerHTML = cmonth;
+        $( '#select1' ).empty();
+        $( '#select2' ).empty(); 
+        var sl1 = document.getElementById('select1');
+        var sl1_sl = document.createElement('select');
+        var sl2 = document.getElementById('select2');
+        var sl2_sl = document.createElement('select');
+        sl1_sl.setAttribute('id', 'likebutton2');
+        sl1_sl.setAttribute('name', cmonth);
+        sl1.setAttribute('class', 'sel_1');
+        sl2_sl.setAttribute('id', 'likebutton3');
+        sl2_sl.setAttribute('name', cyear);
+        sl2.setAttribute('class', 'sel_2');
+        for (i=0; i<month_list.length; i++) {
+            var op = document.createElement('option');
+            if (month_list[i] == cmonth) {
+                op.innerHTML = month_list[i];
+                op.setAttribute("selected", "selected");
+            } else {
+                op.innerHTML = month_list[i];
+            }
+            op.setAttribute('class', 'select_op');
+            op.setAttribute('id', 'likebutton5');
+            sl1_sl.append(op);
+        }
+        sl1.append(sl1_sl);
+        for (i=0; i<year_list.length; i++) {
+            var op = document.createElement('option');
+            if (year_list[i] == cyear) {
+                op.innerHTML = year_list[i];
+                op.setAttribute("selected", "selected");
+            } else {
+                op.innerHTML = year_list[i];
+            }
+            op.setAttribute('class', 'select_op');
+            op.setAttribute('id', 'likebutton6');
+            sl2_sl.append(op);
+        }
+        sl2.append(sl2_sl);
+        var rinfo = document.createElement('div');
+        rinfo.setAttribute('class', 'modalwindow');
+        var closebutton = document.createElement('a');
+        closebutton.setAttribute('href', '#');
+        closebutton.setAttribute('class', 'close');
+        rinfo.append(closebutton);
+        var h2 = document.createElement('h2');
+        var txt = document.createTextNode('Редактирование напоминания');
+        h2.append(txt);
+        rinfo.append(h2);
+        var rcontent = document.createElement('div');
+        rcontent.setAttribute('id', 'reminder_content');
+        rinfo.append(rcontent);
+        }
+    })
+});
+
+
+
+$(document).on("click", "#likebutton1_MONTH_SWITCH_<", function() {
+var id = 1;
+var datster = $(this).attr('name');
+$.ajax({
+    type: "GET",
+    url: "{% url 'mvback' %}",
+    data:{post_id: id, dat: datster},
+    success: function(response)
+    {
+        var instance_past = response["past_month_dates"];
+        var instance_current = response["current_month_dates"];
+        var next_month_dates = response["next_month_dates"];
+        var full_month_dates = response["full_month_dates"];
+        var today = response["today"];
+        var cmonth = response["cmonth"];
+        var cyear = response["cyear"];
+        var month_list = response["month_list"];
+        var year_list = response["year_list"];
+        $( '#id_id' ).empty();
+        $( '#days' ).empty();
+        $( '#hash1' ).empty();
+        $( '#navigation' ).empty();
+        var nav = document.getElementById('navigation');
+        var a1 = document.createElement('a');
+        a1.setAttribute('id', 'month_back_switch');
+        a1.setAttribute('class', 'big_left_arrow');
+        a1.setAttribute('href', '#');
+        a1.setAttribute('name', today);
+        var a2 = document.createElement('a');
+        a2.setAttribute('id', 'month_forward_switch');
+        a2.setAttribute('href', '#');
+        a2.setAttribute('name', today);
+        a2.setAttribute('class', 'big_right_arrow');
+        var topdateYear = document.createElement('a');
+        topdateYear.setAttribute('id', 'top_date_ident_year');
+        topdateYear.setAttribute('href', '#');
+        topdateYear.innerHTML = cyear;
+        var topdateMonth = document.createElement('a');
+        topdateMonth.setAttribute('id', 'top_date_ident_month');
+        topdateMonth.setAttribute('href', '#');
+        topdateMonth.innerHTML = cmonth;
+        nav.append(a1);
+        nav.append(topdateMonth);
+        nav.append(topdateYear);
+        nav.append(a2);
+        <!-- delete old (probably, days) panel and insert month panel -->
+        for (j=0; j < instance_past.length; j++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');    
+            var val = document.createElement('a');
+            div_block.setAttribute('class', 'day_past');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint');
+            val.setAttribute('name', instance_past[j][2]);
+            val.innerHTML = instance_past[j][0];
+            prg.append(val);
+            div_block.append(prg);
+            var rlist = instance_past[j][1];
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {
+                        var rprg = document.createElement('P');
+                        var aprg = document.createElement('a');
+                        rprg.setAttribute('class', 'rparagraph');
+                        aprg.setAttribute('class', 'relink');
+                        aprg.setAttribute('href', '#');
+                        aprg.setAttribute('name', 'reminder_information');
+                        aprg.innerHTML = rlist[r][5];
+                        rprg.append(aprg);
+                        div_block.append(rprg);
+                    }    
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(instance_past[j][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+        for (i=0; i < instance_current.length; i++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');    
+            var val = document.createElement('a');
+            div_block.setAttribute('class', 'day');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint');
+            val.setAttribute('name', instance_current[i][2]);
+            val.innerHTML = instance_current[i][0];
+            prg.append(val);
+            div_block.append(prg);
+            var rlist = instance_current[i][1];
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {
+                        var rprg = document.createElement('P');
+                        var aprg = document.createElement('a');
+                        rprg.setAttribute('class', 'rparagraph');
+                        aprg.setAttribute('class', 'relink');
+                        aprg.setAttribute('href', '#');
+                        aprg.setAttribute('name', 'reminder_information');
+                        aprg.innerHTML = rlist[r][5];
+                        rprg.append(aprg);
+                        div_block.append(rprg);
+                    }    
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(instance_current[i][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+        for (z=0; z < next_month_dates.length; z++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');    
+            var val = document.createElement('a');
+            div_block.setAttribute('class', 'day_past');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint');
+            val.setAttribute('name', next_month_dates[z][2]);
+            val.innerHTML = next_month_dates[z][0];
+            prg.append(val);
+            div_block.append(prg);
+            var rlist = next_month_dates[z][1];
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {
+                        var rprg = document.createElement('P');
+                        var aprg = document.createElement('a');
+                        rprg.setAttribute('class', 'rparagraph');
+                        aprg.setAttribute('class', 'relink');
+                        aprg.setAttribute('href', '#');
+                        aprg.setAttribute('name', 'reminder_information');
+                        rprg.innerHTML = rlist[r][5];
+                        rprg.append(aprg);
+                        div_block.append(rprg);
+                    }    
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(next_month_dates[j][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+        for (x=0; x < full_month_dates.length; x++) {
+            var block1 = document.querySelector('.calendar_body');
+            var prg = document.createElement('P');
+            var val = document.createElement('a');
+            prg.setAttribute('class', 'date-item');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint_2');
+            val.setAttribute('name', full_month_dates[x][1]);
+            val1 = document.createTextNode(full_month_dates[x][0]);
+            val.appendChild(val1);
+            prg.append(val);
+            block1.appendChild(prg);
+        }
+        $( '#iter' ).removeClass('green');
+        $( '#iter' ).addClass('red'); 
+        var param4 = document.getElementById('likebutton4');
+        var param3 = document.getElementById('likebutton3');
+        var param2 = document.getElementById('likebutton2');
+        var param1 = document.getElementById('likebutton1');
+        var monthStepBack = document.getElementById('month_back_switch');
+        var monthStepForward = document.getElementById('month_forward_switch');
+        monthStepForward.removeAttribute('name');
+        monthStepForward.setAttribute('name', today);
+        monthStepForward.setAttribute('class', 'big_right_arrow');
+        monthStepBack.removeAttribute('name');
+        monthStepBack.setAttribute('name', today);
+        monthStepBack.setAttribute('class', 'big_left_arrow');
+        param4.removeAttribute('name');
+        param4.setAttribute('name', today);
+        param3.innerHTML = cyear;
+        param2.innerHTML = cmonth;
+        param1.removeAttribute('name');
+        param1.setAttribute('name', today);
+        var topdateYear = document.getElementById('top_date_ident_year');
+        var topdateMonth = document.getElementById('top_date_ident_month');
+        topdateYear.innerHTML = cyear;
+        topdateMonth.innerHTML = cmonth;    
+        $( '#select1' ).empty();
+        $( '#select2' ).empty(); 
+        var sl1 = document.getElementById('select1');
+        var sl1_sl = document.createElement('select');
+        var sl2 = document.getElementById('select2');
+        var sl2_sl = document.createElement('select');
+        sl1_sl.setAttribute('id', 'likebutton2');
+        sl1_sl.setAttribute('name', cmonth);
+        sl1.setAttribute('class', 'sel_1');
+        sl2_sl.setAttribute('id', 'likebutton3');
+        sl2_sl.setAttribute('name', cyear);
+        sl2.setAttribute('class', 'sel_2');    
+        for (i=0; i<month_list.length; i++) {
+            var op = document.createElement('option');
+            if (month_list[i] == cmonth) {
+                op.innerHTML = month_list[i];
+                op.setAttribute("selected", "selected");
+            } else {
+                op.innerHTML = month_list[i];
+            }
+            op.setAttribute('class', 'select_op');
+            op.setAttribute('id', 'likebutton5');
+            sl1_sl.append(op);
+        }
+        sl1.append(sl1_sl);
+        for (i=0; i<year_list.length; i++) {
+            var op = document.createElement('option');
+            if (year_list[i] == cyear) {
+                op.innerHTML = year_list[i];
+                op.setAttribute("selected", "selected");
+            } else {
+                op.innerHTML = year_list[i];
+            }
+            op.setAttribute('class', 'select_op');
+            op.setAttribute('id', 'likebutton6');
+            sl2_sl.append(op);
+        }
+        sl2.append(sl2_sl);
+        var rinfo = document.createElement('div');
+        rinfo.setAttribute('class', 'modalwindow');
+        var closebutton = document.createElement('a');
+        closebutton.setAttribute('href', '#');
+        closebutton.setAttribute('class', 'close');
+        rinfo.append(closebutton);
+        var h2 = document.createElement('h2');
+        var txt = document.createTextNode('Редактирование напоминания');
+        h2.append(txt);
+        rinfo.append(h2);
+        var rcontent = document.createElement('div');
+        rcontent.setAttribute('id', 'reminder_content');
+        rinfo.append(rcontent);
+       }
+    })
+});
+
+<!--Month change -->
+$(document).on("click", "#likebutton5", function() {
+var year = $('#likebutton3').attr('name');
+var month = this.value;
+$.ajax({
+    type: "GET",
+    url: "{% url 'mc' %}",
+    data: {year: year, month: month},
+    success: function(response)
+    {
+        var month = response["month"];
+        var year = response["year"];
+        var full_month_dates = response["full_month_dates"];
+        var month_id = document.getElementById('likebutton2');
+        month_id.setAttribute('name', month);
+        $( '#hash1' ).empty();
+        var hash1 = document.getElementById('hash1');
+        for (x=0; x < full_month_dates.length; x++) {
+            var block1 = document.querySelector('.calendar_body');
+            var prg = document.createElement('P');
+            var val = document.createElement('a');
+            prg.setAttribute('class', 'date-item');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint_2');
+            val.setAttribute('name', full_month_dates[x][1]);
+            val1 = document.createTextNode(full_month_dates[x][0]);
+            val.appendChild(val1);
+            prg.append(val);
+            block1.appendChild(prg);
+        }
+        }
+    })
+});
+
+<!-- Year change-->
+$(document).on("click", "#likebutton6", function() {
+var year = this.value;
+var month = $('#likebutton2').attr('name');
+$.ajax({
+    type: "GET",
+    url: "{% url 'yc' %}",
+    data: {year: year, month: month},
+    success: function(response)
+    {
+        var year = response["year"];
+        var month = response["month"];
+        var full_month_dates = response["full_month_dates"];
+        var year_id = document.getElementById('likebutton3');
+        year_id.setAttribute('name', year);
+        $( '#hash1' ).empty();
+        var hash1 = document.getElementById('hash1');
+        for (x=0; x < full_month_dates.length; x++) {
+            var block1 = document.querySelector('.calendar_body');
+            var prg = document.createElement('P');
+            var val = document.createElement('a');
+            prg.setAttribute('class', 'date-item');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint_2');
+            val.setAttribute('name', full_month_dates[x][1]);
+            val1 = document.createTextNode(full_month_dates[x][0]);
+            val.appendChild(val1);
+            prg.append(val);
+            block1.appendChild(prg);
+        }
+        }
+    })
+});
+
+
+$(document).on("click", "#likebutton4_MONTH_SWITCH_>", function() {
+var id = 1;
+var datster = $(this).attr('name');
+$.ajax({
+    type: "GET",
+    url: "{% url 'mv' %}",
+    data:{post_id: id, dat: datster},
+    success: function(response)
+    {
+        var instance_past = response["past_month_dates"];
+        var instance_current = response["current_month_dates"];
+        var next_month_dates = response["next_month_dates"];
+        var full_month_dates = response["full_month_dates"];
+        var today = response["today"];
+        var cmonth = response["cmonth"];
+        var cyear = response["cyear"];
+        var month_list = response["month_list"];
+        var year_list = response["year_list"];
+        $( '#id_id' ).empty();
+        $( '#days' ).empty();
+        $( '#hash1' ).empty();
+        $( '#navigation' ).empty();
+        var nav = document.getElementById('navigation');
+        var a1 = document.createElement('a');
+        a1.setAttribute('id', 'month_back_switch');
+        a1.setAttribute('href', '#');
+        a1.setAttribute('name', today);
+        a1.setAttribute('class', 'big_left_arrow');
+        var a2 = document.createElement('a');
+        a2.setAttribute('id', 'month_forward_switch');
+        a2.setAttribute('href', '#');
+        a2.setAttribute('name', today);
+        a2.setAttribute('class', 'big_right_arrow');
+        var topdateYear = document.createElement('a');
+        topdateYear.setAttribute('id', 'top_date_ident_year');
+        topdateYear.setAttribute('href', '#');
+        topdateYear.innerHTML = cyear;
+        var topdateMonth = document.createElement('a');
+        topdateMonth.setAttribute('id', 'top_date_ident_month');
+        topdateMonth.setAttribute('href', '#');
+        topdateMonth.innerHTML = cmonth;
+        nav.append(a1);
+        nav.append(topdateMonth);
+        nav.append(topdateYear);
+        nav.append(a2);     
+<!-- instance  -->
+<!-- big cal update -->
+        for (j=0; j < instance_past.length; j++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');
+            var val = document.createElement('a');
+            div_block.setAttribute('class', 'day_past');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint');
+            val.setAttribute('name', instance_past[j][2]);
+            val.innerHTML = instance_past[j][0];
+            prg.append(val);
+            div_block.append(prg);
+            var rlist = instance_past[j][1];
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {
+                        var rprg = document.createElement('P');
+                        var aprg = document.createElement('a');
+                        rprg.setAttribute('class', 'rparagraph');
+                        aprg.setAttribute('class', 'relink');
+                        aprg.setAttribute('href', '#');
+                        aprg.setAttribute('name', 'reminder_information');
+                        aprg.innerHTML = rlist[r][5];
+                        rprg.append(aprg);
+                        div_block.append(rprg);
+                    }    
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(instance_past[j][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+        for (i=0; i < instance_current.length; i++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');
+            var val = document.createElement('a');
+            div_block.setAttribute('class', 'day');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint');
+            val.setAttribute('name', instance_current[i][2]);
+            val.innerHTML = instance_current[i][0];
+            prg.append(val);
+            div_block.append(prg);
+            var rlist = instance_current[i][1];
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {
+                        var rprg = document.createElement('P');
+                        var aprg = document.createElement('a');
+                        rprg.setAttribute('class', 'rparagraph');
+                        aprg.setAttribute('class', 'relink');
+                        aprg.setAttribute('href', '#');
+                        aprg.setAttribute('name', 'reminder_information');
+                        aprg.innerHTML = rlist[r][5];
+                        rprg.append(aprg);
+                        div_block.append(rprg);
+                    }    
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(instance_current[i][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+        for (z=0; z < next_month_dates.length; z++) {
+            var block1 = document.getElementById('days');
+            var div_block = document.createElement('div');
+            var prg = document.createElement('P');
+            prg.setAttribute('class', 'dpr');
+            var val = document.createElement('a');
+            div_block.setAttribute('class', 'day_past');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint');
+            val.setAttribute('name', next_month_dates[z][2]);
+            val.innerHTML = next_month_dates[z][0];
+            prg.append(val);
+            div_block.append(prg);
+            var rlist = next_month_dates[z][1];
+            if (rlist.length > 0) {
+                for (r=0; r < 5; r++) {
+                    if (rlist[r]) {
+                        var rprg = document.createElement('P');
+                        var aprg = document.createElement('a');
+                        rprg.setAttribute('class', 'rparagraph');
+                        aprg.setAttribute('class', 'relink');
+                        aprg.setAttribute('href', '#');
+                        aprg.setAttribute('name', 'reminder_information');
+                        aprg.innerHTML = rlist[r][5];
+                        rprg.append(aprg);
+                        div_block.append(rprg);
+                    }    
+                }
+                if (rlist.length>5) {
+                    var prpr=document.createElement('a');
+                    prpr.setAttribute('class', 'relink');
+                    var tprpr = document.createTextNode('...');
+                    prpr.append(tprpr);
+                    div_block.append(prpr);
+                }
+                var rblock = document.createElement('div');
+                rblock.setAttribute('id', 'rblock');
+                var prgDate = document.createElement('P');
+                prgDate.setAttribute('class', 'dpr');
+                var dateText = document.createTextNode(next_month_dates[z][0]);
+                prgDate.append(dateText);
+                rblock.append(prgDate);
+                for (r=0; r < rlist.length; r++) {
+                    var rbPrg = document.createElement('P');
+                    prgText = document.createTextNode(rlist[r][5]);
+                    rbPrg.append(prgText);
+                    rblock.append(rbPrg);
+                }
+                div_block.append(rblock);
+            }
+            block1.append(div_block);
+        }
+<!-- small cal update -->
+        for (x=0; x < full_month_dates.length; x++) {
+            var block1 = document.querySelector('.calendar_body');
+            var prg = document.createElement('P');
+            var val = document.createElement('a');
+            prg.setAttribute('class', 'date-item');
+            val.setAttribute('href', '#');
+            val.setAttribute('id', 'daypoint_2');
+            val.setAttribute('name', full_month_dates[x][1]);
+            val1 = document.createTextNode(full_month_dates[x][0]);
+            val.appendChild(val1);
+            prg.append(val);
+            block1.appendChild(prg);
+        }
+        $( '#iter' ).removeClass('green');
+        $( '#iter' ).addClass('red'); 
+        var param4 = document.getElementById('likebutton4');
+        var param3 = document.getElementById('likebutton3');
+        var param2 = document.getElementById('likebutton2');
+        var param1 = document.getElementById('likebutton1');
+        var monthStepBack = document.getElementById('month_back_switch');
+        var monthStepForward = document.getElementById('month_forward_switch');
+        monthStepForward.removeAttribute('name');
+        monthStepForward.setAttribute('name', today);
+        monthStepForward.setAttribute('class', 'big_right_arrow');
+        monthStepBack.removeAttribute('name');
+        monthStepBack.setAttribute('name', today);
+        monthStepBack.setAttribute('class', 'big_left_arrow');
+        param4.removeAttribute('name');
+        param4.setAttribute('name', today);
+        param3.innerHTML = cyear;
+        param2.innerHTML = cmonth;
+        param1.removeAttribute('name');
+        param1.setAttribute('name', today);
+        var topdateYear = document.getElementById('top_date_ident_year');
+        var topdateMonth = document.getElementById('top_date_ident_month');
+        topdateYear.innerHTML = cyear;
+        topdateMonth.innerHTML = cmonth;
+        <!-- обновлять при изменении даты с помощью списка name на стрелочках -->
+        $( '#select1' ).empty();
+        $( '#select2' ).empty(); 
+        var sl1 = document.getElementById('select1');
+        var sl1_sl = document.createElement('select');
+        var sl2 = document.getElementById('select2');
+        var sl2_sl = document.createElement('select');
+        sl1_sl.setAttribute('id', 'likebutton2');
+        sl1_sl.setAttribute('name', cmonth);
+        sl1.setAttribute('class', 'sel_1');
+        sl2_sl.setAttribute('id', 'likebutton3');
+        sl2_sl.setAttribute('name', cyear);
+        sl2.setAttribute('class', 'sel_2');
+        for (i=0; i<month_list.length; i++) {
+            var op = document.createElement('option');
+            if (month_list[i] == cmonth) {
+                op.innerHTML = month_list[i];
+                op.setAttribute("selected", "selected");
+            } else {
+                op.innerHTML = month_list[i];
+            }
+            op.setAttribute('class', 'select_op');
+            op.setAttribute('id', 'likebutton5');
+            sl1_sl.append(op);
+        }
+        sl1.append(sl1_sl);
+
+        for (i=0; i<year_list.length; i++) {
+            var op = document.createElement('option');
+            if (year_list[i] == cyear) {
+                op.innerHTML = year_list[i];
+                op.setAttribute("selected", "selected");
+            } else {
+                op.innerHTML = year_list[i];
+            }
+            op.setAttribute('class', 'select_op');
+            op.setAttribute('id', 'likebutton6');
+            sl2_sl.append(op);
+        }
+        sl2.append(sl2_sl);
+        var rinfo = document.createElement('div');
+        rinfo.setAttribute('class', 'modalwindow');
+        var closebutton = document.createElement('a');
+        closebutton.setAttribute('href', '#');
+        closebutton.setAttribute('class', 'close');
+        rinfo.append(closebutton);
+        var h2 = document.createElement('h2');
+        var txt = document.createTextNode('Редактирование напоминания');
+        h2.append(txt);
+        rinfo.append(h2);
+        var rcontent = document.createElement('div');
+        rcontent.setAttribute('id', 'reminder_content');
+        rinfo.append(rcontent);
+        }
+    })
+});
+</script>
+</body>
+</html>

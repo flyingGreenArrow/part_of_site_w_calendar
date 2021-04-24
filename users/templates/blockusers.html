@@ -1,0 +1,22 @@
+{% extends 'base_profile.html' %}
+{% block title %} Napomnim | Кабинет администратора {% endblock title %}
+{% block content %}
+{% if user.is_admin %}
+    <p class="apage_h">Блокировка</p>
+    <div class="block_form">
+        <p>Чтобы заблокировать пользователя введите его номер телефона. Пользователь не сможет отправлять напоминания и заходить в профиль.</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="form-label" for="{{ form.uphone.id_for_label }}">Номер телефона</label>
+                <input id="id_uphone" type="text" name="uphone" class="form-input">
+                {{ form.uphone.errors }}
+            </div>
+            <br>
+            <button class="btn btn" type="submit" value="Submit"> Заблокировать </button>
+        </form>
+    </div>
+{% else %}
+    <p> Доступ закрыт </p>
+{% endif %}
+{% endblock content %}
